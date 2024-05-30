@@ -96,6 +96,8 @@ img {
     margin-top: 3%;
     border-radius: 40px;
     width: auto;
+    width: 70%;
+    height: auto;
 }
 
 .download-button {
