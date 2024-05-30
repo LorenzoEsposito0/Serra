@@ -1,0 +1,770 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    background: #52575D; /* Background color changed */
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    background: #41444B; /* Navbar background color changed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.header .logo {
+    font-size: 32px;
+    color: #DFD8C8; /* Text color changed */
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.header .menu-icon {
+    display: none;
+    color: #DFD8C8; /* Text color changed */
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.header .navbar a {
+    position: relative;
+    font-size: 18px;
+    color: #DFD8C8; /* Text color changed */
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.header .navbar .searchInput {
+    position: relative;
+    font-size: 18px;
+    color: gray; /* Text color */
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent; /* Transparent background */
+    border: 1px solid #41444B; /* Border with slightly darker shade */
+    border-radius: 10px; /* Border radius */
+    padding: 5px 10px; /* Padding for better appearance */
+    margin-left: 40px;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #CABFAB; /* Hover color changed */
+    transition: .3s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+    background: #CABFAB; /* Hover color changed */
+    text-decoration: none;
+}
+
+.navbar .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #DFD8C8; /* Border color changed to match text */
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #DFD8C8; /* Text color changed to match other text */
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navbar .btnLogin-popup:hover {
+    background: #DFD8C8; /* Hover background color */
+    color: #41444B; /* Hover text color */
+}
+
+@media screen and (max-width: 768px) {
+    .header .navbar {
+        display: none;
+    }
+
+    .header .navbar.active,
+    .header .menu-icon.active {
+        display: flex;
+    }
+
+    .header .navbar {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #41444B; /* Navbar background color changed */
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 40px 20px; /* Increased top padding to lower the card */
+}
+
+.container .card {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.container .card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1BBFE9;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card:hover:before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.container .card:after {
+    content: "Nike";
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.04);
+}
+
+.container .card .imgBx {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+}
+
+.container .card:hover .imgBx {
+    top: 0%;
+    transform: translateY(-25%);
+    /* bug  */
+}
+
+.container .card .imgBx img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(20deg);
+    width: 270px;
+}
+
+.container .card .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 90;
+}
+
+.container .card:hover .contentBx {
+    height: 210px;
+}
+
+.container .card .contentBx h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.container .card .contentBx .size,
+.container .card .contentBx .color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .card:hover .contentBx .size {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .5s;
+}
+
+.container .card:hover .contentBx .color {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .6s;
+}
+
+.container .card .contentBx .size h3,
+.container .card .contentBx .color h3 {
+    color: white;
+    font-weight: 300;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.container .card .contentBx .size span {
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    transition: .5s;
+    color: #111;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container .card .contentBx .size span:hover {
+    background: #B90000;
+}
+
+.container .card .contentBx .color span {
+    width: 20px;
+    height: 20px;
+    background: #ff0;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.container .card .contentBx .color span:nth-child(2) {
+    background: #1BBFE9;
+}
+
+.container .card .contentBx .color span:nth-child(3) {
+    background: #1B2FE9;
+}
+
+.container .card .contentBx .color span:nth-child(4) {
+    background: #080481;
+}
+
+.container .card .contentBx a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .5s;
+}
+
+.container .card:hover .contentBx a {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: .7s;
+}
+
+.navbar .btnLogin-popup:hover {
+    background: #DFD8C8; /* Colore del testo modificato */
+    color: #41444B;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    margin-top: 75px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login {
+    transition: transofrm .2s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transofrm .2s ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, .5);
+    font-size: 2em;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box .h2 {
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: #616f55; /* Colore del testo modificato */
+    text-align: center;    
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
+    margin: 30px 0;    
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: black;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: black;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: black;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: black;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #f5ecda;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: black;
+    font-weight: 600;
+}
+
+.login-register {
+    justify-content: center;
+    font-size: .9em;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+
+.cardHolder {
+    display:flex;
+    justify-content:left; /* center the cards */
+    align-items:normal; /* center the cards vertically */
+    gap: 20px; /* add space between cards */
+    height: 80vh; /* make the card holder take up 80% of the viewport height */
+  }
+  
+  .card {
+    width: 35%; /* enlarge the card a bit */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 0 auto; /* center the card horizontally */
+    border-radius: 10px; /* add border radius */
+    height: 100%; /* make the card take up the full height of the card holder */
+    display: flex; /* make the card a flex container */
+    flex-direction: column; /* align the content vertically */
+  }
+  
+  .card img {
+    width: 100%; /* make the image take up the full width of the card */
+    height: 50%; /* make the image take up 50% of the card height */
+    object-fit: cover; /* make the image cover the entire height */
+    border-radius: 10px 10px 0 0; /* add border radius to the image */
+  }
+  
+  .cardContent {
+    padding: 2px 16px;
+    flex-grow: 1; /* make the content area take up the remaining space */
+    max-height: 30%; /* limit the height of the content area */
+    overflow-y: auto; /* add a scrollbar if the content is too long */
+  }
+  
+  .cardButtons {
+    display:flex;
+    justify-content: space-between;
+    padding: 10px;
+    height: 50; /* limit the height of the button area */
+  }
+  
+  .cardButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    flex-direction: column;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 200px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 45%; /* widen the buttons */
+    
+  }
+  
+  .cardButton:hover {
+    background-color: #45a049;
+  }
+  
+  footer {
+    background-color: #f1f1f1;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+
+
+/* Cart Icon Styles */
+
+  .container {
+    /* existing rules */
+    padding-top: 120px; /* add some top padding to the container to make space for the cart icon */
+  }
+
+  .cart-button{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #DFD8C8; /* Text color changed to match other text */
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+  }
+
+  .cart-button:hover
+  {
+    background: #DFD8C8; /* Hover background color */
+    color: #41444B; /* Hover text color */
+  }
+
+  .colorititoli2
+  {
+    color:white;
+    font-size: 30px
+  }
+
+section{
+    padding: 2rem 9%;
+}
+.home{
+    padding: 0;
+    position: relative;
+}
+.home .slide-container .slide{
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 0 9%;
+    padding-top: 9rem;
+}
+.home .slide-container .slide .content{
+    flex: 1 1 40rem;
+    animation: slideContent .3s linear 1s backwards;
+}
+@keyframes slideContent{
+    0%{
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+}
+.home .slide-container .slide .image{
+    flex: 1 1 50rem;
+    padding-bottom: 15rem;
+    position: relative;
+    z-index: 0;
+}
+.home .slide-container .slide .image .shoe{
+    width: 100%;
+    animation: shoe .3s linear;
+}
+@keyframes shoe{
+    0%{
+        transform: rotate(0deg) scale(.5);
+    }
+}
+.home .slide-container .slide .content span{
+    font-size: 2rem;
+    color: orangered;
+}
+.home .slide-container .slide .content h3{
+    font-size: 5rem;
+    color: #000;
+}
+.home .slide-container .slide .content p{
+    font-size: 1.7rem;
+    color: #DFD8C8;
+    padding: .5rem 0;
+}
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    border: .2rem solid #000;
+    font-weight: bolder;
+    font-size: 1.7rem;
+    color: #000;
+    cursor: pointer;
+    background: #fff;
+    padding: .8rem 3rem;
+}
+
+.home .slide-container{
+    display: none;
+}
+.home .slide-container.active{
+    display: block;
+}
+.home #prev,.home #next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5.5rem;
+    font-size: 2rem;
+    color: #000;
+    border:.2rem solid #000;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+.home #prev:hover,.home #next:hover{
+    color: #fff;
+    background: orangered;
+}
+.home #prev{
+    left: 3rem;
+}
+.home #next{
+    right: 3rem;
+}
+/* end home  */
+
+/* Responsive  */
+@media (max-width:768px){
+    #menu-bar{
+        display: block;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left: -120%;
+        width: 100%;
+        background: #eee;
+        border-top: .1rem solid rgba(0, 0, 0, .1);
+    }
+    header .navbar a{
+        font-size: 2rem;
+        background: #fff;
+        border: .1rem solid #000;
+        border-radius: .5rem;
+        padding: 1rem;
+        margin: 1rem;
+        display: block;
+        text-align: center;
+    }
+    header .navbar.active{
+        left: 0;
+    }
+}
+
+.p3
+{
+    font-size: 20px;
+    margin-left: 2%;
+}
+
+.p4
+{
+    font-size: 30px;
+    color: white;
+}
+
+.top-left {
+    padding: 10px; /* Spazio interno per migliorare la leggibilità */
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+}
+
+.strumenti1
+{
+    margin-top: -200px;
+    margin-left: -1240px;
+    padding: 0 auto;
+    text-align: left;
+    font-size: 25px;
+}
+
+.strumenti2
+{
+    color:white;
+}

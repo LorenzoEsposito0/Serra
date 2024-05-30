@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Progetto Telecomunicazioni</a>
+        <ion-icon name="grid-outline" class = "menu-icon"></ion-icon>
+          <nav class="navbar">
+            <a href="index.html">Obiettivo </a>
+            <a href="about.html">Noi </a>
+            <a href="strumenti.html"> Strumenti</a>
+      </nav>
+      </header>
+        <div class="top-left">
+          <h2 style="color:#DFD8C8">PROCEDIMENTO</h2>
+          <br>
+          <p>Inanzitutto abbiamo definito i sensori che avremmo dovuto implementare nella serra; <br>
+            purtroppo alcuni di questi non sono presenti in Tinkercad quindi abbiamo dovuto utilizzare altri strumenti.</p> <br>
+          <ul>
+              <li>Il Water Sensor è stato sostituito con un sensore di rilevamento distanza a ultrasuoni</li>
+              <li>Il sensore di temperatura è stato sostituito con un DHT11</li>
+              <li>La pompa d'acqua è stata sostituita con un semplice motore cc</li>
+          </ul>
+          <br>
+          <p>Volendo avremmo potuto utilizzare il rilevatore di distanza a ultrasuoni anche nella realtà ma sarebbe risultato meno preciso e affidabile del Water Sensor.</p>
+          <p>È stato inoltre scelto un DHT11 in quanto più preciso del DHT22.</p><br>
+          <h2 style="color:#DFD8C8">FUNZIONAMENTO DEL PROGETTO</h2>
+          <br>
+          <p>Il funzionamento del progetto è molto semplice: ad ogni dato rilevato dai sensori corrisponde un evento:</p>
+          <br>
+          <ul>
+              <li>Se l'umidità scende sotto un certo valore, si attiva la pompa dell'acqua per l'innaffiamento del terreno.</li>
+              <li>Se la temperatura ambientale si alza sopra la soglia definita, si attiva la ventola di raffreddamento.</li>
+              <li>Se il livello dell'acqua del serbatoio scende sotto il livello definito, si attiva il buzzer.</li>
+              <li>Se l'ambiente non fornisce abbastanza luce, viene attivato un led artificiale.</li>
+          </ul>
+          <br>
+          <p>Tutti i dati rilevati dai sensori sono riportarti sullo schermo LCD in tempo reale.</p>
+        </div>
+        
+
+            
+        </p>
+</body>
+</html>
