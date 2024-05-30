@@ -1,20 +1,19 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;
-    margin: 0;
-    padding: 0;
+    font-family: 'Verdana', sans-serif;
+    background-color: rgb(253, 251, 251);
 }
 
 .title {
-    padding: 3%;
-    margin: 4%;
+    padding: 2%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 2%;
     background-color: rgb(124, 203, 230);
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 20px;
     box-shadow: 0 0 15px rgb(63, 147, 175);
     text-align: center;
-    color: #fff;
-    font-size: 2.5em;
+    color: black;
     font-weight: bold;
 }
 
@@ -23,10 +22,6 @@ body {
     color: #006400;
     font-size: 1.5em;
     text-align: center;
-}
-
-.font {
-    background-color: rgba(0, 255, 21, 0.1);
 }
 
 .foto1 {
@@ -46,8 +41,8 @@ h1, h2 {
 
 ul.Strumenti {
     font-size: 1.2em;
-    margin: 0 auto;
-    padding: 0;
+    margin: 1% auto;
+    padding: 1%;
     list-style: none;
     max-width: 600px;
 }
@@ -56,8 +51,12 @@ ul.Strumenti li {
     background: #e0f7fa;
     margin: 10px 0;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+ul.Strumenti li:hover{
+    box-shadow: 0 0 15px rgb(80, 185, 217);
 }
 
 .procedimento {
