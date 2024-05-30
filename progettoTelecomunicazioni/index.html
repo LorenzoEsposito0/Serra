@@ -4,40 +4,46 @@
     <title>Monitoraggio serra - ARDUINO</title>
     <link rel="stylesheet" href="styleSerraArduino.css">
 </head>
-<body  class="font">
-        <h1 class="title"><b>Serra Automatica con Arduino</b></h1>
-        <p class="paragrafo"><b>AUTOMATIZZA LA TUA SERRA CON ARDUINO</b></p>
-        <img class="foto1" src="Immagini/FotoArduino.png" alt="Immagine di una serra automatica realizzata con Arduino" title="Serra Automatica">
-        <h1 >Componenti necessari</h1>
-        <ul class="Strumenti">
-            <li>Arduino Uno</li>
-            <li>Sensore di umidità del suolo</li>
-            <li>Sensore di luminosità</li>
-            <li>Attuatore per irrigazione</li>
-            <li>Attuatore per l'apertura e la chiusura delle tapparelle</li>
-            <li>Cavi e connettori</li>
-        </ul>
-        <h1>Come funziona</h1>
-        <p class="procedimento">La serra automatica realizzata con Arduino è in grado di monitorare l'umidità del suolo e la luminosità all'interno della serra, e di attivare l'irrigazione e l'apertura/chiusura delle tapparelle in base alle condizioni ambientali. Il sistema è completamente automatizzato e può essere programmato per adattarsi alle esigenze specifiche delle piante presenti nella serra.
-            Inanzitutto abbiamo definito i sensori che avremmo dovuto implementare nella serra; purtroppo alcuni di questi non sono presenti in tinkercad quindi abbiamo dovuto utilizzare altri strumenti. Degli esempi sono il Water Sensor, il tmp e la pompa d'acqua, assenti in tinkercad, che nella piattaforma online abbiamo sostituito rispettivamente con un sensore di rilevamento distanza a ultrasuoni, il dht11 e un semplice motore cc.
-
-            Volendo avremmo potuto utilizzare il rilevatore di distanza a ultrasuoni anche nella realtà ma sarebbe risultato meno preciso e affidabile del water sensor.
-            E' stato inoltre scelto un dht11 in quanto più preciso del dht22.
-
-            Il funzionamento del progetto è molto semplice: ad ogni dato rilevato dai sensori corrisponde un evento:
-            -  nel caso in cui l'umidità scenda sotto un certo valore si attiva la pompa dell'acqua finalizzata all'innaffiamento del terreno;
-            - se la temperatura ambientale si alza sopra la soglia definita allora si attiva la ventola di raffreddanento
-            - nel caso in cui il livello dell'acqua del serbatoio scenda sotto il livello definito si attiva il buzzer 
-            - se l'ambiente non fornisce abbastanza luce viene attivato un led artificiale
-
-            Tutti i dati rilevati dai sensori sono riportarti sullo schermo lcd in tempo reale.
-        </p>
-        <h2>Schema elettrico</h2>
-        <img src="schema_elettrico.png" alt="Schema elettrico della serra automatica realizzata con Arduino" title="Schema Elettrico">
-        <h2>Codice di programmazione</h2>
-        <p>Il codice di programmazione della serra automatica realizzata con Arduino è disponibile su GitHub:</p>
-        <a href="https://github.com/utente/serra-automatica-arduino">
+<body class="font">
+    <h1 class="title">Serra Automatica con Arduino</h1>
+    <p class="paragrafo"><b>AUTOMATIZZA LA TUA SERRA CON ARDUINO</b></p>
+    <img class="foto1" src="Immagini/FotoArduino.png" alt="Immagine di una serra automatica realizzata con Arduino" title="Serra Automatica">
+    <h1>Componenti necessari</h1>
+    <ul class="Strumenti">
+       <li>Pompa ad acqua</li>  
+        <li>Buzzer</li>
+        <li>Led </li>
+        <li>Resistenze</li>
+        <li>Cavetti</li>
+        <li>Breadboard</li>
+        <li>Arduino Uno</li>
+        <li>Arduino mega </li>
+        <li>Ventola (motore)</li>
+        <li>Sensore di umidità terreno </li>
+        <li>Sensore di luminosità</li>
+        <li>Attuatore per l'apertura e la chiusura delle tapparelle</li>
+        <li>Dht11 </li>
+        <li>Attuatore per l'apertura e la chiusura delle tapparelle</li>
+        <li>Fotoresistenza</li>
+    </ul>
+    <h1>Come funziona</h1>
+    <p class="procedimento">
+        La serra automatica realizzata con Arduino è in grado di monitorare l'umidità del suolo e la luminosità all'interno della serra, e di attivare l'irrigazione e l'apertura/chiusura delle tapparelle in base alle condizioni ambientali. Il sistema è completamente automatizzato e può essere programmato per adattarsi alle esigenze specifiche delle piante presenti nella serra.
+        Inanzitutto abbiamo definito i sensori che avremmo dovuto implementare nella serra; purtroppo alcuni di questi non sono presenti in tinkercad quindi abbiamo dovuto utilizzare altri strumenti. Degli esempi sono il Water Sensor, il tmp e la pompa d'acqua, assenti in tinkercad, che nella piattaforma online abbiamo sostituito rispettivamente con un sensore di rilevamento distanza a ultrasuoni, il dht11 e un semplice motore cc.
+        Volendo avremmo potuto utilizzare il rilevatore di distanza a ultrasuoni anche nella realtà ma sarebbe risultato meno preciso e affidabile del water sensor. E' stato inoltre scelto un dht11 in quanto più preciso del dht22.
+        Il funzionamento del progetto è molto semplice: ad ogni dato rilevato dai sensori corrisponde un evento:
+        - nel caso in cui l'umidità scenda sotto un certo valore si attiva la pompa dell'acqua finalizzata all'innaffiamento del terreno;
+        - se la temperatura ambientale si alza sopra la soglia definita allora si attiva la ventola di raffreddamento;
+        - nel caso in cui il livello dell'acqua del serbatoio scenda sotto il livello definito si attiva il buzzer;
+        - se l'ambiente non fornisce abbastanza luce viene attivato un led artificiale.
+        Tutti i dati rilevati dai sensori sono riportarti sullo schermo lcd in tempo reale.
+    </p>
+    <h2>Schema elettrico</h2>
+    <img src="schema_elettrico.png" alt="Schema elettrico della serra automatica realizzata con Arduino" title="Schema Elettrico">
+    <h2>Codice di programmazione</h2>
+    <p>Il codice di programmazione della serra automatica realizzata con Arduino è disponibile su GitHub:</p>
+    <a href="https://github.com/utente/serra-automatica-arduino">
         <img src="logo_github.png" alt="Logo di GitHub">
-        </a>
+    </a>
 </body>
 </html>
